@@ -7,9 +7,6 @@ import {
   IndexError, 
 } from './ResponseForm.js';
 
-import { fileURLToPath } from 'url';
-console.log(fileURLToPath(import.meta.url));
-
 export async function deleteOne(req, res) {
   const { id } = req.params;
   if (! Types.ObjectId.isValid(id)) {

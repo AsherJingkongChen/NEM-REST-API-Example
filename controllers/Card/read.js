@@ -7,9 +7,6 @@ import {
   IndexError, 
 } from './ResponseForm.js';
 
-import { fileURLToPath } from 'url';
-console.log(fileURLToPath(import.meta.url));
-
 export async function readAll(req, res) {
   const cards = await CardModel
     .find({})

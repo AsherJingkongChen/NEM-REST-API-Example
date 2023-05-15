@@ -1,11 +1,8 @@
 import mongoose from 'mongoose';
-import { Config } from './Config.js';
+import { API_ROUTE, DB_URI, HOST, PORT } from './Config.js';
 import { CardRouter } from './routers/Card/CardRouter.js';
 import express from 'express';
 import cors from 'cors';
-
-import { fileURLToPath } from 'url';
-console.log(fileURLToPath(import.meta.url));
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -17,13 +14,14 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-app.use(`/${Config.API}/cards`, CardRouter);
+app.use(`/${API_ROUTE}/cards`, CardRouter);
 
-app.listen(Config.PORT, async () => {
-  const url = `${Config.HOST}:${Config.PORT}`;
-  console.log(`\napp listening at "${url}"`);
-  console.log(`api url is "${url}/${Config.API}"`);
+app.listen(PORT, async () => {
+  console.log(`Server is listening at port ${PORT}`);
+  console.log(`API URL: ${HOST}:${PORT}/${API_ROUTE}`);
 
-  await mongoose.connect(Config.DB_GENERAL_URI, {});
-  console.log(`Connected to the MongoDB Atlas Database "${mongoose.connection.name}"`);
+  await mongoose.connect(DB_URI);
+  console.log(`Connected to the MongoDB Atlas Database "${
+    mongoose.connection.name
+  }"`);
 });

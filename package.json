@@ -5,11 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "AsherJingkongChen",
+    "url": "https://github.com/AsherJingkongChen"
+  },
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

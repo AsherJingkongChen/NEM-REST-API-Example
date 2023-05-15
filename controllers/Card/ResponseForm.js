@@ -1,8 +1,5 @@
 import { getReasonPhrase } from 'http-status-codes';
 
-import { fileURLToPath } from 'url';
-console.log(fileURLToPath(import.meta.url));
-
 export const SuccessForm = (statusCode, card) => {
   return {
     code: statusCode,

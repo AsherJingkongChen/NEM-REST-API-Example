@@ -7,9 +7,6 @@ import {
   IndexError, 
 } from './ResponseForm.js';
 
-import { fileURLToPath } from 'url';
-console.log(fileURLToPath(import.meta.url));
-
 export async function updateOne(req, res) {
   const { id } = req.params;  
   if (! Types.ObjectId.isValid(id)) {
@@ -30,8 +27,8 @@ export async function updateOne(req, res) {
     
   } catch (error) {
     return res
-      .status(StatusCodes.UNPROCESSABLE_ENTITY)
-      .json(ErrorForm(StatusCodes.UNPROCESSABLE_ENTITY, error));
+      .status(StatusCodes.BAD_REQUEST)
+      .json(ErrorForm(StatusCodes.BAD_REQUEST, error));
   }
   
   if (! card) {

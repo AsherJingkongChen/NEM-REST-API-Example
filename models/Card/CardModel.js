@@ -1,8 +1,5 @@
 import { Schema, model } from 'mongoose';
 
-import { fileURLToPath } from 'url';
-console.log(fileURLToPath(import.meta.url));
-
 const data = {
   author: { type: String, default: 'Nobody', maxlength: 64 },
   title: { type: String, default: 'Nothing', maxLength: 256 },
