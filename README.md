@@ -7,7 +7,7 @@ This repo is for learning backend techniques
 ## Features
 
 - Node.js (Server)
-- Express (Routers)
+- Express (Router)
 - MongoDB (Database)
 - Postman (Test)
 
