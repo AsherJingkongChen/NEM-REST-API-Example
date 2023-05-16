@@ -26,14 +26,14 @@ This example is for learning backend techniques:
 - Uses JavaScript ESModule syntax
 
 ---
-# Demo
+# Usage demo
 
 ---
 # Problems I solved
 
 - How to setup tests with Postman?
 - How to setup routers with Express?
-- How to build a simple REST API example?
+- How to build a simple RESTful API example?
 - How to interact with MongoDB?
 
 ---
