@@ -1,15 +1,20 @@
 # REST API Example (Node.js + Express + MongoDB)
 
+## Usage demo
+
+
+
 ## Description
 
-This repo is for learning backend techniques
+This example is for learning backend techniques
 
 ## Features
 
 - Node.js (Server)
 - Express (Router)
-- MongoDB (Database)
+- MongoDB + Mongoose (Database)
 - Postman (Test)
+- JavaScript ESModule
 
 ## Prerequisites
 

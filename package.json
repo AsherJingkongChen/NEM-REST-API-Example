@@ -12,6 +12,10 @@
     "name": "AsherJingkongChen",
     "url": "https://github.com/AsherJingkongChen"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AsherJingkongChen/NEM-REST-API-Example.git"
+  },
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

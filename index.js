@@ -1,8 +1,13 @@
 import mongoose from 'mongoose';
-import { API_ROUTE, DB_URI, HOST, PORT } from './Config.js';
 import { CardRouter } from './routers/Card/CardRouter.js';
 import express from 'express';
 import cors from 'cors';
+import { config } from 'dotenv';
+config();
+
+const { API_VERSION, HOST, PORT } = process.env;
+const API_ROUTE = `api/v${API_VERSION}`;
+const DB_URI = process.env[`DB_V${API_VERSION}_URI`];
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
