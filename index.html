@@ -100,8 +100,11 @@ video {
   max-width: 100%;
 }
 .slide {
+  display: flex;
+  flex-direction: column;
   min-width: calc(100vw - 4em);
   height: calc(100vh - 2em);
+  height: calc(100dvh - 2em);
   padding: 1em 2em;
   overflow-y: scroll;
   scroll-snap-align: start;
@@ -110,12 +113,6 @@ video {
 }
 .slide::-webkit-scrollbar {
   display: none;
-}
-@media only screen and (max-width: 768px) {
-  .slide {
-    height: calc(90% - 2em);
-    height: calc(100dvh - 2em);
-  }
 }
 #slides {
   display: flex;
