@@ -1,8 +1,9 @@
 ---
 codeslide:
-  fontSize: 21px
-  styles:
-    - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs.min.css
+  codeFont:
+    size: 1em
+  slideFont:
+    size: 1.5em
 
 ---
 # RESTful API Example (Node.js + Express + MongoDB)
@@ -47,17 +48,17 @@ This example is for learning backend techniques:
 ---
 # Entry point
 
-[:code.js](../index.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/index.js)
 
 ---
 # A model
 
-[:code.js](../models/Card/CardModel.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/models/Card/CardModel.js)
 
 ---
 # A router
 
-[:code.js](../routers/Card/CardRouter.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/routers/Card/CardRouter.js)
 
 ---
 # CRUD controllers
@@ -70,29 +71,29 @@ This example is for learning backend techniques:
 ---
 # Create
 
-[:code.js](../controllers/Card/create.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/controllers/Card/create.js)
 
 ---
 # Read
 
-[:code.js](../controllers/Card/read.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/controllers/Card/read.js)
 
 ---
 # Update
 
-[:code.js](../controllers/Card/update.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/controllers/Card/update.js)
 
 ---
 # Delete
 
-[:code.js](../controllers/Card/delete.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/controllers/Card/delete.js)
 
 ---
 # Utilities
 
 ## ResponseForm
 
-[:code.js](../controllers/Card/ResponseForm.js)
+[:code.js](https://raw.githubusercontent.com/AsherJingkongChen/NEM-REST-API-Example/main/controllers/Card/ResponseForm.js)
 
 ---
 # Thanks for your watching!

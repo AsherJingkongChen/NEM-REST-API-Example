@@ -11,16 +11,73 @@
 <link
   href="https://fonts.gstatic.com"
   rel="preconnect" crossorigin>
-<style>
-/*! CodeSlide slides.horizontal.css */
-html, body {
-  margin: 0;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-  overflow: hidden;
+<style>/*! Highlight.js VisualStudio.css */
+.hljs {
+  background: #fff;
+  color: #000;
 }
+.hljs-comment,
+.hljs-quote,
+.hljs-variable {
+  color: green;
+}
+.hljs-built_in,
+.hljs-keyword,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-tag {
+  color: #00f;
+}
+.hljs-addition,
+.hljs-attribute,
+.hljs-literal,
+.hljs-section,
+.hljs-string,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-title,
+.hljs-type {
+  color: #a31515;
+}
+.hljs-deletion,
+.hljs-meta,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #2b91af;
+}
+.hljs-doctag {
+  color: grey;
+}
+.hljs-attr {
+  color: red;
+}
+.hljs-bullet,
+.hljs-link,
+.hljs-symbol {
+  color: #00b0e8;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+
+/*! CodeSlide slides.horizontal.css */
 a {
   color: dodgerblue;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+code {
+  font-size: 85%;
+}
+html {
+  overflow: hidden;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 img {
   max-width: 100%;
@@ -57,7 +114,7 @@ video {
 @media only screen and (max-width: 768px) {
   .slide {
     height: calc(90% - 2em);
-    height: calc(100svh - 2em);
+    height: calc(100dvh - 2em);
   }
 }
 #slides {
@@ -69,6 +126,7 @@ video {
   overscroll-behavior: none;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  line-height: 1.5;
 }
 @media print {
   @page {
@@ -81,23 +139,26 @@ video {
   }
 }
 
-pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#fff;color:#000}.hljs-comment,.hljs-quote,.hljs-variable{color:green}.hljs-built_in,.hljs-keyword,.hljs-name,.hljs-selector-tag,.hljs-tag{color:#00f}.hljs-addition,.hljs-attribute,.hljs-literal,.hljs-section,.hljs-string,.hljs-template-tag,.hljs-template-variable,.hljs-title,.hljs-type{color:#a31515}.hljs-deletion,.hljs-meta,.hljs-selector-attr,.hljs-selector-pseudo{color:#2b91af}.hljs-doctag{color:grey}.hljs-attr{color:red}.hljs-bullet,.hljs-link,.hljs-symbol{color:#00b0e8}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+/*! CodeSlide codeFont properties */
 code {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  font-size: 85%;
 }
+pre > code {
+  font-size: medium;
+  font-weight: normal;
+}
+
+/* CodeSlide slideFont properties */
 #slides {
   font-family: system-ui;
-  font-size: 21px;
+  font-size: 1.5em;
   font-weight: normal;
-  line-height: 1.5;
-}
-</style>
+}</style>
 </head>
 <body class="hljs">
 <div id="slides">
 <div class="slide" id="slide_0">
-<h1 id="rest-api-example-nodejs--express--mongodb">RESTful API Example (Node.js + Express + MongoDB)</h1>
+<h1 id="restful-api-example-nodejs--express--mongodb">RESTful API Example (Node.js + Express + MongoDB)</h1>
 <p>The repository is <a href="https://github.com/AsherJingkongChen/NEM-REST-API-Example.git">here</a></p>
 </div>
 <div class="slide" id="slide_1">
@@ -143,7 +204,7 @@ code {
 </div>
 <div class="slide" id="slide_6">
 <h1 id="entry-point">Entry point</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> mongoose <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> mongoose <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardRouter</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./routers/Card/CardRouter.js&#x27;</span>;
 <span class="hljs-keyword">import</span> express <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>;
 <span class="hljs-keyword">import</span> cors <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;cors&#x27;</span>;
@@ -178,7 +239,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 </div>
 <div class="slide" id="slide_7">
 <h1 id="a-model">A model</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Schema</span>, model } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Schema</span>, model } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
 
 <span class="hljs-keyword">const</span> data = {
   <span class="hljs-attr">author</span>: { <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>, <span class="hljs-attr">default</span>: <span class="hljs-string">&#x27;Nobody&#x27;</span>, <span class="hljs-attr">maxlength</span>: <span class="hljs-number">64</span> },
@@ -202,7 +263,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 </div>
 <div class="slide" id="slide_8">
 <h1 id="a-router">A router</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Router</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Router</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;express&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardController</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../controllers/Card/CardController.js&#x27;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">CardRouter</span> = <span class="hljs-title class_">Router</span>()
@@ -223,7 +284,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 </div>
 <div class="slide" id="slide_10">
 <h1 id="create">Create</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">StatusCodes</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;http-status-codes&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">SuccessForm</span>, <span class="hljs-title class_">ErrorForm</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./ResponseForm.js&#x27;</span>;
 
@@ -243,7 +304,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 </div>
 <div class="slide" id="slide_11">
 <h1 id="read">Read</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">StatusCodes</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;http-status-codes&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Types</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
 <span class="hljs-keyword">import</span> { 
@@ -284,7 +345,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 </div>
 <div class="slide" id="slide_12">
 <h1 id="update">Update</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">StatusCodes</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;http-status-codes&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Types</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
 <span class="hljs-keyword">import</span> { 
@@ -330,7 +391,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 </div>
 <div class="slide" id="slide_13">
 <h1 id="delete">Delete</h1>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">CardModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../../models/Card/CardModel.js&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">StatusCodes</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;http-status-codes&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Types</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mongoose&#x27;</span>;
 <span class="hljs-keyword">import</span> { 
@@ -362,7 +423,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 <div class="slide" id="slide_14">
 <h1 id="utilities">Utilities</h1>
 <h2 id="responseform">ResponseForm</h2>
-<p><pre><code class="language-js"><span class="hljs-keyword">import</span> { getReasonPhrase } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;http-status-codes&#x27;</span>;
+<p><pre><code class="language-js hljs"><span class="hljs-keyword">import</span> { getReasonPhrase } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;http-status-codes&#x27;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">SuccessForm</span> = (<span class="hljs-params">statusCode, card</span>) =&gt; {
   <span class="hljs-keyword">return</span> {
