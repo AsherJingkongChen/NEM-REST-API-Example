@@ -1,9 +1,10 @@
 ---
 codeslide:
+  layout: horizontal
   codeFont:
-    size: 1em
+    size: 1rem
   slideFont:
-    size: 1.5em
+    size: 1.5rem
 
 ---
 # RESTful API Example (Node.js + Express + MongoDB)

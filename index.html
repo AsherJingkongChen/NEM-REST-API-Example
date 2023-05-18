@@ -7,54 +7,72 @@
   content="CodeSlide makes a slideshow for code snippets">
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1">
+  content="width=device-width, initial-scale=1, user-scalable=no">
 <link
   href="https://fonts.gstatic.com"
   rel="preconnect" crossorigin>
-<style>/*! Highlight.js VisualStudio.css */
+<style>
+/*! Highlight.js Visual Studio 2015 Dark */
 .hljs {
-  background: #fff;
-  color: #000;
+  background: #1e1e1e;
+  color: #dcdcdc;
 }
-.hljs-comment,
-.hljs-quote,
-.hljs-variable {
-  color: green;
+.hljs-keyword,
+.hljs-literal,
+.hljs-name,
+.hljs-symbol {
+  color: #569cd6;
+}
+.hljs-link {
+  color: #569cd6;
+  text-decoration: underline;
 }
 .hljs-built_in,
-.hljs-keyword,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-tag {
-  color: #00f;
-}
-.hljs-addition,
-.hljs-attribute,
-.hljs-literal,
-.hljs-section,
-.hljs-string,
-.hljs-template-tag,
-.hljs-template-variable,
-.hljs-title,
 .hljs-type {
-  color: #a31515;
+  color: #4ec9b0;
 }
-.hljs-deletion,
-.hljs-meta,
-.hljs-selector-attr,
-.hljs-selector-pseudo {
-  color: #2b91af;
+.hljs-class,
+.hljs-number {
+  color: #b8d7a3;
+}
+.hljs-meta .hljs-string,
+.hljs-string {
+  color: #d69d85;
+}
+.hljs-regexp,
+.hljs-template-tag {
+  color: #9a5334;
+}
+.hljs-formula,
+.hljs-function,
+.hljs-params,
+.hljs-subst,
+.hljs-title {
+  color: #dcdcdc;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #57a64a;
+  font-style: italic;
 }
 .hljs-doctag {
-  color: grey;
+  color: #608b4e;
 }
-.hljs-attr {
-  color: red;
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-tag {
+  color: #9b9b9b;
 }
-.hljs-bullet,
-.hljs-link,
-.hljs-symbol {
-  color: #00b0e8;
+.hljs-template-variable,
+.hljs-variable {
+  color: #bd63c5;
+}
+.hljs-attr,
+.hljs-attribute {
+  color: #9cdcfe;
+}
+.hljs-section {
+  color: gold;
 }
 .hljs-emphasis {
   font-style: italic;
@@ -62,8 +80,26 @@
 .hljs-strong {
   font-weight: 700;
 }
+.hljs-bullet,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  color: #d7ba7d;
+}
+.hljs-addition {
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
+}
+.hljs-deletion {
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
+}
 
-/*! CodeSlide slides.horizontal.css */
+/*! CodeSlide Presets */
 a {
   color: dodgerblue;
 }
@@ -76,8 +112,6 @@ code {
 }
 html {
   overflow: hidden;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
 }
 img {
   max-width: 100%;
@@ -100,39 +134,46 @@ video {
   max-width: 100%;
 }
 .slide {
-  display: flex;
-  flex-direction: column;
-  min-width: calc(100vw - 4em);
-  height: calc(100vh - 2em);
-  height: calc(100dvh - 2em);
   padding: 1em 2em;
-  overflow-y: scroll;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  scrollbar-width: none;
-}
-.slide::-webkit-scrollbar {
-  display: none;
 }
 #slides {
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: scroll;
-  overscroll-behavior: none;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
   line-height: 1.5;
+}
+@media screen {
+  .slide {
+    min-width: calc(100vw - 4em);
+    height: calc(100vh - 2em);
+    height: calc(100dvh - 2em);
+    overflow-y: scroll;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scrollbar-width: none;
+  }
+  .slide::-webkit-scrollbar {
+    display: none;
+  }
+  #slides {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
 }
 @media print {
   @page {
     margin: 0;
-    size: auto;
   }
-  #slides {
-    width: auto;
-    height: auto;
+  html {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  /* h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+  } */
+  .slide {
+    break-after: page;
   }
 }
 
@@ -141,18 +182,18 @@ code {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 }
 pre > code {
-  font-size: medium;
+  font-size: 1rem;
   font-weight: normal;
 }
 
 /* CodeSlide slideFont properties */
 #slides {
   font-family: system-ui;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: normal;
-}</style>
-</head>
-<body class="hljs">
+}
+</style></head>
+<body>
 <div id="slides">
 <div class="slide" id="slide_0">
 <h1 id="restful-api-example-nodejs--express--mongodb">RESTful API Example (Node.js + Express + MongoDB)</h1>
@@ -453,6 +494,5 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable 
 <p>The repository is <a href="https://github.com/AsherJingkongChen/NEM-REST-API-Example.git">here</a>
 The tests are on <a href="https://www.postman.com/supply-administrator-56584646/workspace/my-workspace/collection/24393116-46ba2a8d-f6c5-409f-9ee9-c1b1fd0eba0d?action=share&creator=24393116">Postman</a></p>
 </div>
-</div>
-</body>
+</div></body>
 </html>
