@@ -3,6 +3,7 @@
 ## [Expo](https://asherjingkongchen.github.io/NEM-REST-API-Example/)
 
 ## Usage demo
+https://github.com/AsherJingkongChen/NEM-REST-API-Example/assets/37398747/dcd5559c-0edc-49d1-b847-2080fc8704b9
 
 ## Description
 
